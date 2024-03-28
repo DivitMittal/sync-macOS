@@ -119,7 +119,7 @@ if status --is-interactive
 
   ############################################ Aliases #################################################
   alias showpath 'echo $PATH | sed "s/ /\n/g"'
-  alias showid "id | sed 's/ /\n/g' | sed 's/,/\n/g'"
+  alias showid "id | sed 's/ /\n/g'"
 
   # Mapping "ls" to "eza"
   set -l eza_params "--all" "--classify" "--icons=always" "--group-directories-first" "--color=always" "--color-scale" "--color-scale-mode=gradient" "--hyperlink"

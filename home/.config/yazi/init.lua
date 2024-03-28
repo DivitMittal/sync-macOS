@@ -42,3 +42,5 @@ function Status:name()
 	return ui.Span(" " .. h.name .. linked)
 end
 
+-- Initializations
+
