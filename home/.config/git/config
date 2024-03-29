@@ -4,7 +4,7 @@
 
 [core]
 	editor       = nvim
-	pager        = delta
+	pager        = less
 	autocrlf     = input
 	ignorecase   = false
 	excludesfile = ~/.config/git/ignore

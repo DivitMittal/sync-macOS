@@ -105,14 +105,12 @@ if status --is-interactive
   set -gx fzf_preview_dir_cmd eza --all --color=always --icons=always --classify --group-directories-first --group --hyperlink --color-scale --color-scale-mode=gradient
   set -gx fzf_diff_highlighter delta --paging=never --width=20
   set -gx fzf_preview_file_cmd bat --style=numbers
-  fzf_configure_bindings --variables=\ev --processes=\ep --git_status=\es --git_log=\el --history= --directory=
+  fzf_configure_bindings --variables=\ev --processes=\ep --git_status=\es --git_log=\el --history=\er --directory=\ef
 
   # fifc plugin
   set -gx fifc_editor nvim
   set -gx fifc_fd_opts --hidden
-  set -gx fifc_bat_opts --style=numbers
-  set -gx fifc_exa_opts --all --classify --icons --oneline --group-directories-first --group
-  # fifc --order 1 --condition 'test "$fifc_group" = "directories"' --source _fifc_source_files
+  set -gx fifc_eza_opts --all
 
   # GNU Screen config env var
   set -x SCREENRC $HOME/.config/screen/screenrc
@@ -122,7 +120,7 @@ if status --is-interactive
   alias showid "id | sed 's/ /\n/g'"
 
   # Mapping "ls" to "eza"
-  set -l eza_params "--all" "--classify" "--icons=always" "--group-directories-first" "--color=always" "--color-scale" "--color-scale-mode=gradient" "--hyperlink"
+  set -l eza_params '--all' '--classify' '--icons=always' '--group-directories-first' '--color=always' '--color-scale' '--color-scale-mode=gradient' '--hyperlink'
   alias ll "eza -lbhHigUmuSa@ $eza_params | ov -H1"
   alias lt "eza -T --level=2 $eza_params" # tree listing with depth 2
   alias ls "eza $eza_params"
