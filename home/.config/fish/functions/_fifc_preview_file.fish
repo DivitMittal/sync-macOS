@@ -16,7 +16,7 @@ function _fifc_preview_file -d "Preview the selected file with the right tool de
             end
         case image
             if type -q wezterm
-                wezterm imgcat "$fifc_candidate"
+                wezterm imgcat $fifc_imgcat_opts "$fifc_candidate"
             else if type -q chafa
                   chafa $fifc_chafa_opts "$fifc_candidate"
             else
@@ -25,6 +25,8 @@ function _fifc_preview_file -d "Preview the selected file with the right tool de
         case archive
             if type -q ouch
                 ouch list -ty $fifc_ouch_opts "$fifc_candidate"
+            else if type -q 7z
+                7z l ""$fifc_candidate"" | tail -n +17 | awk '{ print $6 }'
             else
                 _fifc_preview_file_default "$fifc_candidate"
             end
