@@ -1,58 +1,31 @@
 #!/usr/bin/env fish
 #################################### Setting variables ########################################
-# Delete all previous paths in current fish terminal session
-set -e fish_user_paths
-
 ## Fish variables
 set -g fish_greeting ''
 set -l brew_prefix '/usr/local'
-
-if status --is-interactive
-  # Emulates vim's cursor shape behavior
-  set -g fish_vi_force_cursor 1
-  # Set the normal and visual mode cursors to a block
-  set -g fish_cursor_default block
-  # Set the insert mode cursor to a line
-  set -g fish_cursor_insert line
-  # Set the replace mode cursor to an underscore
-  set -g fish_cursor_replace_one underscore
-  # The following variable can be used to configure cursor shape in
-  # visual mode, but due to fish_cursor_default, is redundant here
-  set -g fish_cursor_visual block
-end
 
 ## Environment Variables
 set -gx EDITOR 'nvim'
 set -gx VISUAL 'nvim'
 set -gx PAGER 'less'
-set -x LESS '--RAW-CONTROL-CHARS --mouse -C --tilde --tabs=2 -W --status-column -i'
-set -x LESSHISTFILE '-'
-set -x LESSOPEN "|$brew_prefix/bin/lesspipe.sh %s"
-set -x LESSCOLORIZER 'bat'
 
 # Adding to PATH env var
 fish_add_path $HOME/.local/bin
 
-
 ################################## Additional Programs ##############################################
-## Homebrew
-set -x HOMEBREW_NO_ENV_HINTS 1
-set -x HOMEBREW_BUNDLE_FILE "$HOME/.config/brew/Brewfile"
-
 # Homebrew paths
 fish_add_path $brew_prefix/bin
 fish_add_path $brew_prefix/sbin
 
-## Update macOS default utilities
+############# Update macOS default utilities
 ## GNU utils
 # fish_add_path $brew_prefix/opt/coreutils/libexec/gnubin #GNU coreutils (cd, env, ls, test, type, etc.)
-# fish_add_path $brew_prefix/opt/findutils/libexec/gnubin #GNU findutils(find, xargs, locate)
-# fish_add_path $brew_prefix/opt/binutils/bin #GNU binutils(ar, elfedit, sysdump, size, etc.)
-# fish_add_path $brew_prefix/opt/gnu-sed/libexec/gnubin #GNU sed
-# fish_add_path $brew_prefix/opt/ed/bin; #GNU ed(ed & red)
-alias ed 'ged -v -p ":"';
-# fish_add_path $brew_prefix/opt/grep/libexec/gnubin #GNU grep(grep, egrep, fgrep)
-# fish_add_path $brew_prefix/opt/gnu-which/libexec/gnubin #GNU which
+fish_add_path $brew_prefix/opt/findutils/libexec/gnubin #GNU findutils(find, xargs, locate)
+fish_add_path $brew_prefix/opt/binutils/bin #GNU binutils(ar, elfedit, sysdump, size, etc.)
+fish_add_path $brew_prefix/opt/gnu-sed/libexec/gnubin #GNU sed
+alias ed 'ged -v -p ":"'; fish_add_path $brew_prefix/opt/ed/bin; #GNU ed(ed & red);
+fish_add_path $brew_prefix/opt/grep/libexec/gnubin #GNU grep(grep, egrep, fgrep)
+fish_add_path $brew_prefix/opt/gnu-which/libexec/gnubin #GNU which
 fish_add_path $brew_prefix/opt/gnu-indent/libexec/gnubin #GNU indent
 fish_add_path $brew_prefix/opt/gnu-tar/libexec/gnubin #GNU tar
 fish_add_path $brew_prefix/opt/gawk/libexec/gnubin #GNU awk
@@ -61,27 +34,43 @@ fish_add_path $brew_prefix/opt/gcc/bin #GNU compiler collection
 fish_add_path $brew_prefix/opt/m4/bin #GNU m4
 fish_add_path $brew_prefix/opt/curl/bin #GNU curl
 fish_add_path $brew_prefix/opt/bc/bin #GNU bc
-# Other utils
+# non-GNU utils
 fish_add_path $brew_prefix/opt/zip/bin #Info-Zip zip
 
-## Ruby
+############### Languages
+# Ruby
 fish_add_path $brew_prefix/opt/ruby/bin
-
-## Java
+# Java
 fish_add_path $brew_prefix/opt/openjdk/bin
-
-## Postgresql
+# Postgresql
 fish_add_path $brew_prefix/opt/postgresql@14/bin
-
-## Rust
+# Rust
 fish_add_path $HOME/.cargo/bin
+
 
 if status --is-interactive
   ####################################   Config when fish is interactive ###############################################3
+  ###########  Variables
+  set -g fish_vi_force_cursor 1
+  set -g fish_cursor_default block
+  set -g fish_cursor_visual block
+  set -g fish_cursor_insert line
+  set -g fish_cursor_replace_one underscore
+  # environment variables
+  set -x LESS '--RAW-CONTROL-CHARS --mouse -C --tilde --tabs=2 -W --status-column -i'
+  set -x LESSHISTFILE '-'
+  set -x LESSOPEN "|$brew_prefix/bin/lesspipe.sh %s"
+  set -x LESSCOLORIZER 'bat'
+  set -x HOMEBREW_NO_ENV_HINTS 1
+  set -x HOMEBREW_BUNDLE_FILE "$HOME/.config/brew/Brewfile"
+  set -x SCREENRC $HOME/.config/screen/screenrc
+
+  ########## Utilities
   fish_add_path $HOME/.config/emacs/bin # Doom Emacs
   # fish_add_path /System/Library/PrivateFrameworks/Apple80211.framework/Resources #Airport Utility
   fish_add_path /Applications/Floorp.app/Contents/MacOS # Floorp browser
 
+  #################### Languages
   ## Ruby
   # rbenv
   rbenv init - fish | source
@@ -95,7 +84,7 @@ if status --is-interactive
   pyenv init - | source
   pyenv virtualenv-init - | source
 
-  ## FZF - fuzzy finder
+  ################# FZF - fuzzy finder
   # fzf
   set -x FZF_DEFAULT_OPTS "--multi --cycle --border --height 50% --bind='space:toggle' --bind='tab:down' --bind='btab:up' --no-scrollbar --marker='*' --preview-window=wrap"
   set -x FZF_DEFAULT_COMMAND 'fd --hidden'
@@ -112,18 +101,15 @@ if status --is-interactive
   set -gx fifc_fd_opts --hidden
   set -gx fifc_eza_opts --all
 
-  # GNU Screen config env var
-  set -x SCREENRC $HOME/.config/screen/screenrc
-
   ############################################ Aliases #################################################
   alias showpath 'echo $PATH | sed "s/ /\n/g"'
   alias showid "id | sed 's/ /\n/g'"
 
   # Mapping "ls" to "eza"
   set -l eza_params '--all' '--classify' '--icons=always' '--group-directories-first' '--color=always' '--color-scale' '--color-scale-mode=gradient' '--hyperlink'
-  alias ll "eza -lbhHigUmuSa@ $eza_params | ov -H1"
-  alias lt "eza -T --level=2 $eza_params" # tree listing with depth 2
   alias ls "eza $eza_params"
+  alias lt "eza --tree --level=2 $eza_params"
+  alias ll "eza -lbhHigUmuSa@ $eza_params | ov -H1"
 
   # Other similar mappings
   alias man 'batman'

@@ -5,7 +5,7 @@
 
     --tridactyl-bg: var(--bg);
     --tridactyl-fg: var(--fg);
-    --tridactyl-font-size: 10px;
+    --tridactyl-font-size: 16px;
 
     /* Header */
     --tridactyl-header-first-bg: #333;
@@ -32,6 +32,6 @@
 
     /* Completions Table */
     --tridactyl-cmplt-font-family: var(--font);
-    --tridactyl-cmplt-font-size: 8px;
+    --tridactyl-cmplt-font-size: 14px;
 }
 

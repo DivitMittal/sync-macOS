@@ -7,11 +7,11 @@ set newtab about:blank
 
 bind f hint
 bind F hint -b
+bind gf hint -qb
 
 bind N back
 bind I forward
 unbind d
-bind D tabclose
 
 bind U undo
 
