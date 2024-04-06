@@ -10,6 +10,7 @@ Menuwhere.app
 Microsoft Excel.app
 Microsoft OneNote.app
 Microsoft Teams (work or school).app
+Mission Control Plus.app
 Nix Apps
 Notion.app
 ONLYOFFICE.app

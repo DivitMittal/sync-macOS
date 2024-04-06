@@ -23,24 +23,30 @@ keymap('n', '0', '^', options)
 
 M.general = {
   n = {
+
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
+
     ["<leader>tt"] = {
       function()
         require("nvterm.terminal").new "float"
       end,
       "New float term", opts = silent
     },
+
     ["<leader>ht"] = {
       function()
         require("nvterm.terminal").new "horizontal"
       end,
       "New horizontal term", opts = silent
     },
+
     ["<leader>tr"] = {
       function()
         require("base46").toggle_transparency()
       end,
-    }
+    },
+
+    ["<leader><CR>"] = { "<cmd>.!fish <CR>", "Run the last entered text in fish shell"}
   },
   v = {
     [">"] = { ">gv", "indent"},

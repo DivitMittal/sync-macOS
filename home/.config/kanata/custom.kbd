@@ -11,7 +11,7 @@
   tab    q    w    e    r    t         u    i    o    p   [     ]    ;; 12 keys
   caps   a    s    d    f    g         j    k    l    ;    '    ret  ;; 12 keys
   lsft   z    x    c    v    b         n    m    ,    .    /    rsft ;; 12 keys
-             lmet                spc               rmet              ;; 3  keys
+          lalt  lmet                spc               rmet  ralt     ;; 3  keys (alt keys are redundant for myriad ansi layouts)
 )
 
 ;; Aliases for keys accessible only via shifting
@@ -88,7 +88,7 @@
   tab      q    w    f    p    b        j    l    u    y     '     ;
   @delf    a    r    s    t    g        m    n    e    i     o     ret
   lsft     x    c    d    v    z      @slaf  k    h   @comf @dotf  rsft
-                @tl               spc                 @tr
+            @tl  @tl               spc                 @tr @tr
 )
 
 
@@ -126,7 +126,7 @@
   _   esc   @sWin   XX     XX    XX      @pguf   @btb  up   tab   @cw     XX
   _   @sAlt @sCtl  @sSft  @sMet  XX      @pgdf  left  down  rght  rpt-any  _
   _    @sFn  XX    @sHyp   XX    XX        XX    XX   bspc   del   XX      _
-                    _                 _                _
+                _  _                 _                _  _
 )
 
 
@@ -160,9 +160,9 @@
 ;; TR (Thumb Right) layer (symbols & numbers)
 (deflayer TR
   _   @exc  @ats   @oct   @dol  @car        @perf  @7f   @8f   @9f   @plu  eql
-  _   @ampf @pipf  @curf  @parf @sqrf      @astf  @4f   @5f   @6f   min    _
-  _    XX   @ano  @anc    XX    XX         /     @0f   @1f   @2f   @3f    _
-                     _                   _               XX
+  _   @ampf @pipf  @curf  @parf @sqrf       @astf  @4f   @5f   @6f   min    _
+  _    XX   @ano  @anc    XX    XX           /     @0f   @1f   @2f   @3f    _
+                  _  _                   _               XX XX
 )
 
 
@@ -189,5 +189,6 @@
   _  @scref  brup    pp   volu  XX            XX   XX   XX   XX  XX   _
   _    XX     XX     XX    XX   XX            XX   XX   XX   XX  XX   _
   _  brdown @medif @voldf  XX   XX            XX   XX   XX   XX  XX   _
-             XX                      lrld                  XX
+          XX XX                      lrld                  XX XX
 )
+

@@ -114,7 +114,9 @@ if status --is-interactive
   # Other similar mappings
   alias man 'batman'
   alias cat 'bat --paging=never'
-  alias ff 'fastfetch --logo-type iterm --logo $HOME/Sync-macOS/assets/a-12.png --pipe false --structure Title:OS:Kernel:Uptime:Display:Terminal:CPU:CPUUsage:GPU:Memory:Swap:LocalIP --gpu-temp true --cpu-temp true --title-color-user magenta --title-color-at blue --cpu-format "{1} @ {#4;35}{8}{#}" --gpu-format "{2} @ {#4;35}{4}{#}"'
+  alias ff 'fastfetch --logo-type iterm --logo $HOME/Sync-macOS/assets/a-12.png \
+    --pipe false --title-color-user magenta --title-color-at blue --title-color-host red \
+    --structure Title:OS:Kernel:Uptime:Display:Terminal:CPU:CPUUsage:GPU:Memory:Swap:LocalIP --gpu-temp true --cpu-temp true --cpu-format "{1} @ {#4;35}{8}{#}" --gpu-format "{2} @ {#4;35}{4}{#}"'
 
   # Directory shortcuts for macOS
   alias dt "cd $HOME/Desktop/"
