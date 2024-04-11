@@ -51,9 +51,9 @@ alias ls='eza $eza_params'
 alias ll='eza -lbhHigUmuSa@ $eza_params'
 alias lt='eza --tree --level=2 $eza_params'
 
-# # Directory shortcuts
-# alias dt="cd $HOME/Desktop/"
-# alias dl="cd $HOME/Downloads/"
+# Directory shortcuts
+alias dt="cd $HOME/Desktop/"
+alias dl="cd $HOME/Downloads/"
 
 ################################################################################################################################################
 # Additional Programs

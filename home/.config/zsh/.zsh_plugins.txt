@@ -1,14 +1,14 @@
 # .zsh_plugins.txt
-# zsh-users/zsh-completions
-# zsh-users/zsh-syntax-highlighting
-# Aloxaf/fzf-tab
 ohmyzsh/ohmyzsh
+Aloxaf/fzf-tab
 ohmyzsh/ohmyzsh path:plugins/macos
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/starship
 ohmyzsh/ohmyzsh path:plugins/zoxide
 ohmyzsh/ohmyzsh path:plugins/tmux
 jeffreytse/zsh-vi-mode
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 hlissner/zsh-autopair
 
