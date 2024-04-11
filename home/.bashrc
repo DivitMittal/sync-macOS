@@ -12,6 +12,7 @@ export HISTFILE=${BADOTDIR:-$HOME}/.bash_history
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 export TERM='xterm-256color'
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'

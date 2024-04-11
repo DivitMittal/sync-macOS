@@ -9,7 +9,6 @@ Menu Bar Dock.app
 Menuwhere.app
 Microsoft Excel.app
 Microsoft OneNote.app
-Microsoft Teams (work or school).app
 Mission Control Plus.app
 Nix Apps
 Notion.app
@@ -24,11 +23,8 @@ Spotify.app
 Syntax Highlight.app
 Thunderbird.app
 Todoist.app
-Tor Browser.app
 Utilities
 Visual Studio Code.app
 Vivaldi.app
-Wacom Tablet.localized
 WezTerm.app
-Xcode-15.2.0.app
 gSwitch.app
